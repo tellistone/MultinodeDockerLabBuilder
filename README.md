@@ -13,3 +13,8 @@ How to use:
 - Follow the instructions within the terminal window.
 - Once your lab has been spun up, you can connect to it on http://127.0.0.1:80/
 - Default logon credentials to the UI are admin/admin.
+
+Good to know:
+- All mongoDB and Elastic/Opensearch data is persistently stored in ./storage
+- Graylog storage (Journal etc) is persistant but not accessible.
+- There is a script in ./scripts called "mongo-cluster-comand.sh". You should run this to make the Mongo nodes form a cluster after bringing the containers up again after a shutdown.
