@@ -6,27 +6,23 @@ The script will ask you to select from Elasticsearch or Opensearch, and then wil
 
 Docker Compose then builds a 2 Graylog, 3 Mongo, 2 ES/OS cluster behind a nginx load balancer, using the selected version of each.
 
-Open ports for data to be sent into Graylog on 127.0.0.1.
+You can then connect to the cluster via http://127.0.0.1:80/
 
-        - 514:514
-        - 514:514/udp
-        - 1514:1514
-        - 1514:1514/udp
-        - 4739:4739
-        - 4739:4739/udp
-        - 5044:5044
-        - 5044:5044/udp
-        - 5555:5555
-        - 9515:9515
-        - 12201:12201
-        - 12201:12201/udp
-        - 13301:13301
-        - 13301:13301/udp
+The following ports are open for data to be sent into Graylog on 127.0.0.1.
+
+        - 514
+        - 1514
+        - 4739
+        - 5044
+        - 5555
+        - 95155
+        - 12201
+        - 13301
 
 Pre-Requisities: 
 
 - Docker 
-- Docker Compose v3
+- Docker Compose (v3)
 - Mac or Linux OS.
 
 How to use: 
