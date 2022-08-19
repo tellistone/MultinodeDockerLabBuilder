@@ -4,8 +4,7 @@ launch='N'
 
 echo "Time to build a Graylog Cluster."
 echo
-echo "Input O for Opensearch, or E to for Elasticsearch:"
-read databaseTypeInput
+read -p "Input O for Opensearch, or E to for Elasticsearch:" databaseTypeInput 
 echo
 shopt -s nocasematch
 db='O'
