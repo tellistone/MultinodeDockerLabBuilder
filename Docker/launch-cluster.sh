@@ -4,16 +4,15 @@ launch='N'
 
 echo "Time to build a Graylog Cluster."
 echo
-read -p "Input O for Opensearch, or E to for Elasticsearch:" databaseTypeInput 
+read -p "Input O for Opensearch, or E to for Elasticsearch: " databaseTypeInput
 echo
-shopt -s nocasematch
-db='O'
-if ! [[ ${databaseTypeInput} =~ $db ]] ; then
+
+if [ "$databaseTypeInput" == "O" ] ; then
     echo "Preparing to Launch 2 Graylog 2 Elastic 3 Mongo node cluster"
     echo
-    read -p "Which version of Graylog? Example: 4.3" graylogVersionInput 
-    read -p "Which version of MongoDB? Example: 4.4" mongoVersionInput 
-    read -p "Which version of Elasticsearch? Example: 7.10.2" elasticVersionInput
+    read -p "Which version of Graylog? Example: 4.3 " graylogVersionInput 
+    read -p "Which version of MongoDB? Example: 4.4 " mongoVersionInput 
+    read -p "Which version of Elasticsearch? Example: 7.10.2 " elasticVersionInput
     echo 
     echo "Launching Cluster using Graylog $graylogVersionInput, MongoDB $mongoVersionInput, Elasticsearch $elasticVersionInput"
     echo
@@ -36,9 +35,9 @@ db='E'
 if ! [[ ${databaseTypeInput} =~ $db ]] ; then
     echo "Preparing to Launch 2 Graylog 2 Opensearch 3 Mongo node cluster"
     echo
-    read -p "Which version of Graylog? Example: 4.3" graylogVersionInput 
-    read -p "Which version of MongoDB? Example: 4.4" mongoVersionInput 
-    read -p "Which version of Opensearch? Example: 1.3.0" elasticVersionInput 
+    read -p "Which version of Graylog? Example: 4.3 " graylogVersionInput 
+    read -p "Which version of MongoDB? Example: 4.4 " mongoVersionInput 
+    read -p "Which version of Opensearch? Example: 1.3.0 " elasticVersionInput 
     echo 
     echo "Launching Cluster using Graylog $graylogVersionInput, MongoDB $mongoVersionInput, Opensearch $elasticVersionInput"
     echo
