@@ -5,9 +5,10 @@ launch='N'
 echo "Time to build a Graylog Cluster."
 echo
 read -p "Input O for Opensearch, or E to for Elasticsearch: " databaseTypeInput
+databaseTypeInput=$(echo $databaseTypeInput | tr '[:upper:]' '[:lower:]')
 echo
 
-if [ "$databaseTypeInput" == "O" ] ; then
+if [ "$databaseTypeInput" == "o" ] ; then
     echo "Preparing to Launch 2 Graylog 2 Elastic 3 Mongo node cluster"
     echo
     read -p "Which version of Graylog? Example: 4.3 " graylogVersionInput 
@@ -31,8 +32,7 @@ if [ "$databaseTypeInput" == "O" ] ; then
     launch='Y'
 fi
 
-db='E'
-if ! [[ ${databaseTypeInput} =~ $db ]] ; then
+if  [ "$databaseTypeInput" == "e" ] ; then
     echo "Preparing to Launch 2 Graylog 2 Opensearch 3 Mongo node cluster"
     echo
     read -p "Which version of Graylog? Example: 4.3 " graylogVersionInput 
