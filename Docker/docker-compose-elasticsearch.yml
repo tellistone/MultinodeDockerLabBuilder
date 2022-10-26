@@ -16,6 +16,36 @@ version: '3'
 #  node.data: "true"
 
 services:
+    ubuntu-logdaddy:
+      image: ubuntu:20.04
+      container_name: ubuntu-logdaddy
+      tty: true
+      stdin_open: true
+      volumes:
+        - ./logdaddy/usr/share/logdaddy
+      deploy:
+        resources:
+          limits:
+            memory: 1g
+      networks:
+        - graylog.net
+
+    filebeat1:
+      image: elastic/filebeat:8.4.3
+      container_name: filebeat1
+      tty: true
+      stdin_open: true
+      volumes:
+        - ./logdaddy/cache/beats:/usr/share/filebeat/logs
+        - ./filebeat/input:/games
+        - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      deploy:
+        resources:
+          limits:
+            memory: 512m
+      networks:
+        - graylog.net
+      
     # MongoDB: https://hub.docker.com/_/mongo/
     mongo1:
       image: mongo:$MONGO_VERSION
@@ -30,7 +60,7 @@ services:
       deploy:
         resources:
           limits:
-            memory: 512m
+            memory: 1g
         placement:
           constraints:
             - node.labels.mongo.replica == 1
